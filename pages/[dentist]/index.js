@@ -1,7 +1,7 @@
-import { Assistants } from "../../src/components/Assistants/Assistants";
-import { Header } from "../../src/components/Header/Header";
-import { Layout } from "../../src/components/Layout";
-import { getDentists, getDentistsUri } from "../../src/queries/getPages";
+import { Assistants } from "@/src/components/Assistants/Assistants";
+import { Header } from "@/src/components/Header/Header";
+import { Layout } from "@/src/components/Layout";
+import { getDentists, getDentistsUri } from "@/src/queries/getPages";
 
 const Dentist = ({ data }) => {
   if (!data) return null;

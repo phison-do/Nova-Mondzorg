@@ -1,7 +1,7 @@
-import { Header } from "../../src/components/Header/Header";
-import { Layout } from "../../src/components/Layout";
-import { NewsOverview } from "../../src/components/NewsOverview/NewsOverview";
-import { getAllNews, getAllNewsPaths } from "../../src/queries/getNewsPosts";
+import { Header } from "@/src/components/Header/Header";
+import { Layout } from "@/src/components/Layout";
+import { NewsOverview } from "@/src/components/NewsOverview/NewsOverview";
+import { getAllNews } from "@/src/queries/getNewsPosts";
 
 const News = ({ data }) => {
   if (!data) return null;

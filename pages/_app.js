@@ -1,9 +1,9 @@
 import { ApolloProvider } from "@apollo/client";
-import client from "../src/apollo/client";
-import { ThemeProvider } from "@emotion/react";
-import { theme } from "../src/theme";
-import { GlobalStyles } from "../src/theme/globalStyles";
 import NextHead from "next/head";
+import { ThemeProvider } from "@emotion/react";
+import client from "@/src/apollo/client";
+import { theme } from "@/src/theme";
+import { GlobalStyles } from "@/src/theme/globalStyles";
 
 function MyApp({ Component, pageProps }) {
   return (

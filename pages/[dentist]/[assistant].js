@@ -1,8 +1,8 @@
-import client from "../../src/apollo/client";
-import { Layout } from "../../src/components/Layout";
-import { GET_ALL_PAGES_URI } from "../../src/queries/getPages";
-import { getAssistants } from "../../src/queries/getAssistants";
-import { AssistantDetail } from "../../src/components/AssistantDetail/AssistantDetail";
+import client from "@/src/apollo/client";
+import { Layout } from "@/src/components/Layout";
+import { GET_ALL_PAGES_URI } from "@/src/queries/getPages";
+import { getAssistants } from "@/src/queries/getAssistants";
+import { AssistantDetail } from "@/src/components/AssistantDetail/AssistantDetail";
 
 const Assistant = ({ data }) => {
   if (!data) return null;

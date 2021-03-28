@@ -1,8 +1,8 @@
-import { getHomePage } from "../src/queries/getHomePage";
-import { Header } from "../src/components/Header/Header";
-import { Layout } from "../src/components/Layout/Layout";
-import { News } from "../src/components/News/News";
-import { Dentists } from "../src/components/Dentists/Dentists";
+import { getHomePage } from "@/src/queries/getHomePage";
+import { Header } from "@/src/components/Header/Header";
+import { Layout } from "@/src/components/Layout/Layout";
+import { News } from "@/src/components/News/News";
+import { Dentists } from "@/src/components/Dentists/Dentists";
 
 export default function Home({ data }) {
   if (!data) return null;
@@ -14,9 +14,9 @@ export default function Home({ data }) {
       footerData={data.getFooter.sidebarOne}
     >
       <Header
-        imageSrc={data.page.featuredImage?.node?.mediaItemUrl}
-        title={data.page.title}
-        content={data.page.content}
+        imageSrc={data.page?.featuredImage?.node?.mediaItemUrl}
+        title={data.page?.title}
+        content={data.page?.content}
       />
       <Dentists items={data.pages.edges} />
       <News items={data.posts.edges} />
@@ -25,7 +25,7 @@ export default function Home({ data }) {
 }
 
 export const getStaticProps = async () => {
-  const data = await getHomePage("/");
+  const data = await getHomePage("home");
 
   return {
     props: {

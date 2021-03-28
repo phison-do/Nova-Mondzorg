@@ -1,7 +1,6 @@
-// import { Header } from "../../src/components/Header/Header";
-import { Layout } from "../../src/components/Layout";
-import { getAllNewsPaths, getNewsPosts } from "../../src/queries/getNewsPosts";
-import { NewsDetail } from "../../src/components/NewsDetail/NewsDetail";
+import { Layout } from "@/src/components/Layout";
+import { getAllNewsPaths, getNewsPosts } from "@/src/queries/getNewsPosts";
+import { NewsDetail } from "@/src/components/NewsDetail/NewsDetail";
 
 const Post = ({ data }) => {
   if (!data) return null;
