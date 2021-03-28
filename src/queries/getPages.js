@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
+import { fetchAPI } from "@/src/apollo/fetchApi";
 import { footer } from "./getFooter";
 import { header } from "./getMenus";
-import { fetchAPI } from "../../lib/api/fetchApi";
 
 export async function getDentists(slug) {
   const data = await fetchAPI(

@@ -1,7 +1,7 @@
 import { header } from "./getMenus";
 import { footer } from "./getFooter";
 import { newsPosts } from "./getNewsPosts";
-import { fetchAPI } from "../../lib/api/fetchApi";
+import { fetchAPI } from "@/src/apollo/fetchApi";
 
 export async function getHomePage(slug) {
   const data = await fetchAPI(

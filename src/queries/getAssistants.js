@@ -1,4 +1,4 @@
-import { fetchAPI } from "../../lib/api/fetchApi";
+import { fetchAPI } from "@/src/apollo/fetchApi";
 import { footer } from "./getFooter";
 import { header } from "./getMenus";
 
