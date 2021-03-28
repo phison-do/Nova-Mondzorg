@@ -1,28 +1,6 @@
-# A statically generated blog example using Next.js and WordPress
+# A statically generated Site using Next.js, GraphQL and WordPress
 
-This example showcases Next.js's [Static Generation](https://nextjs.org/docs/basic-features/pages) feature using [WordPress](https://wordpress.org) as the data source.
-
-![WPGraphQL installed](./docs/plugin-installed.png)
-
-#### Optional: Add WPGraphiQL
-
-The [WPGraphiQL](https://github.com/wp-graphql/wp-graphiql) plugin gives you access to a GraphQL IDE directly from your WordPress Admin, allowing you to inspect and play around with the GraphQL API.
-
-The process to add WPGraphiQL is the same as the one for WPGraphQL: Go to the [WPGraphiQL repo](https://github.com/wp-graphql/wp-graphiql), download the ZIP archive, and install it as a plugin in your WordPress site. Once that's done you should be able to access the GraphiQL page in the admin:
-
-![WPGraphiQL page](./docs/wp-graphiql.png)
-
-### Step 2. Populate Content
-
-Inside your WordPress admin, go to **Posts** and start adding new posts:
-
-- We recommend creating at least **2 posts**
-- Use dummy data for the content
-- Pick an author from your WordPress users
-- Add a **Featured Image**. You can download one from [Unsplash](https://unsplash.com/)
-- Fill the **Excerpt** field
-
-### Step 4. Run Next.js in development mode
+### Run Next.js in development mode
 
 ```bash
 npm install
@@ -30,18 +8,13 @@ npm run dev
 
 # or
 
-yarn install
+yarn
 yarn dev
 ```
 
-Your blog should be up and running on [http://localhost:3000](http://localhost:3000)! If it doesn't work, post on [GitHub discussions](https://github.com/vercel/next.js/discussions).
+Site should be running on [http://localhost:3000](http://localhost:3000)!
 
-Copy the `refreshToken` returned by the mutation, then open `.env.local`, and make the following changes:
-
-- Uncomment `WORDPRESS_AUTH_REFRESH_TOKEN` and set it to be the `refreshToken` you just received.
-- Uncomment `WORDPRESS_PREVIEW_SECRET` and set it to be any random string (ideally URL friendly).
-
-Your `.env.local` file should look like this:
+Your `.env` file should look like this:
 
 ```bash
 WORDPRESS_API_URL=...
