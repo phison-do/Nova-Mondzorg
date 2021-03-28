@@ -1,44 +1,35 @@
-import Head from 'next/head'
-import Container from '../components/container'
-import MoreStories from '../components/more-stories'
-import HeroPost from '../components/hero-post'
-import Intro from '../components/intro'
-import Layout from '../components/layout'
-import { getAllPostsForHome } from '../lib/api'
-import { CMS_NAME } from '../lib/constants'
+import { getHomePage } from "../src/queries/getHomePage";
+import { Header } from "../src/components/Header/Header";
+import { Layout } from "../src/components/Layout/Layout";
+import { News } from "../src/components/News/News";
+import { Dentists } from "../src/components/Dentists/Dentists";
 
-export default function Index({ allPosts: { edges }, preview }) {
-  const heroPost = edges[0]?.node
-  const morePosts = edges.slice(1)
+export default function Home({ data }) {
+  if (!data) return null;
 
   return (
-    <>
-      <Layout preview={preview}>
-        <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
-        </Head>
-        <Container>
-          <Intro />
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.featuredImage?.node}
-              date={heroPost.date}
-              author={heroPost.author?.node}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-        </Container>
-      </Layout>
-    </>
-  )
+    <Layout
+      header={data.headerMenus.edges}
+      footer={data.footerMenus.edges}
+      footerData={data.getFooter.sidebarOne}
+    >
+      <Header
+        imageSrc={data.page.featuredImage?.node?.mediaItemUrl}
+        title={data.page.title}
+        content={data.page.content}
+      />
+      <Dentists items={data.pages.edges} />
+      <News items={data.posts.edges} />
+    </Layout>
+  );
 }
 
-export async function getStaticProps({ preview = false }) {
-  const allPosts = await getAllPostsForHome(preview)
+export const getStaticProps = async () => {
+  const data = await getHomePage("/");
+
   return {
-    props: { allPosts, preview },
-  }
-}
+    props: {
+      data: data || {},
+    },
+  };
+};
